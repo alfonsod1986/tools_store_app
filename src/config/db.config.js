@@ -23,3 +23,11 @@ const db = {};
 
 db.Sequelize = Sequelize;
 db.tools_store_app = tools_store_app;
+
+/* Models */
+db.users = require('../models/user')(tools_store_app, Sequelize);
+
+/* Relations */
+
+/* Export module */
+module.exports = db;
