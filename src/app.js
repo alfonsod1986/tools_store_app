@@ -7,6 +7,7 @@ const app = express();
 const bodyParser = require('body-parser');
 
 /* Importing Routes */
+const user = require('./routes/user');
 
 /* Middlewares */
 app.use(morgan('dev'));
@@ -24,6 +25,7 @@ app.use((req, res, next) => {
 });
 
 /* Routes */
+app.use('/api', user);
 
 /* Export module */
 module.exports = app;
