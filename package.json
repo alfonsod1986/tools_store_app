@@ -4,8 +4,17 @@
   "description": "API para gestionar ferreteria",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
   },
   "author": "Luis Alfonso Delgado Ballado",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0",
+    "mysql2": "^1.5.3",
+    "nodemon": "^1.17.5",
+    "sequelize": "^4.37.10"
+  }
 }
