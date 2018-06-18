@@ -1,6 +1,7 @@
 'use strict';
 
 const bcrypt = require('bcrypt-nodejs');
+const jwt = require('../service/jwt');
 const db = require('../config/db.config');
 const User = db.users;
 
