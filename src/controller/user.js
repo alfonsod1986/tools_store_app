@@ -58,8 +58,9 @@ controller.logIn = (req, res) => {
                     return res.status(404).send({ success: false, message: 'El usuario no se ha podido identificar.'});
                 }
             });
+        }else{
+            return res.status(404).send({ success: false, message: 'El usuario no se ha podido identificar!!.'});
         }
-        res.status(200).send(user);
     }).catch((err) =>{
         res.status(500).send(err);
     });
