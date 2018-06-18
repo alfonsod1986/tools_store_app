@@ -10,6 +10,7 @@ const bodyParser = require('body-parser');
 const user = require('./routes/user');
 const measurement_unit = require('./routes/measurement_unit');
 const product = require('./routes/product');
+const customer = require('./routes/customer');
 
 /* Middlewares */
 app.use(morgan('dev'));
@@ -30,6 +31,7 @@ app.use((req, res, next) => {
 app.use('/api', user);
 app.use('/api', measurement_unit);
 app.use('/api', product);
+app.use('/api', customer);
 
 /* Export module */
 module.exports = app;
