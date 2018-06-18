@@ -35,10 +35,7 @@ controller.logIn = (req, res) => {
     var {password} = req.body;
 
     User.findOne({
-        where: {
-            username: username,
-            password: password
-        }
+        where: { username: username }
     }).then(user => {
         if(user){
             bcrypt.compare(password, user.password, (err, check) => {
