@@ -26,6 +26,7 @@ db.tools_store_app = tools_store_app;
 
 /* Models */
 db.users = require('../models/user')(tools_store_app, Sequelize);
+db.measurement_units = require('../models/measurement_unit')(tools_store_app, Sequelize);
 
 /* Relations */
 
