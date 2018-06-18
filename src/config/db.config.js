@@ -30,6 +30,12 @@ db.measurement_units = require('../models/measurement_unit')(tools_store_app, Se
 db.products = require('../models/product')(tools_store_app, Sequelize);
 
 /* Relations */
+//-- Products relationships
+db.products.belongsTo(db.measurement_units, { foreignKey: 'measurement_unit_id' });
+
+// -- Measurement Unit relationships
+db.measurement_units.hasMany(db.products, { foreignKey: 'measurement_unit_id' });
+
 
 /* Export module */
 module.exports = db;
