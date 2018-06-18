@@ -1,5 +1,6 @@
 'use strict';
 
+const bcrypt = require('bcrypt-nodejs');
 const db = require('../config/db.config');
 const User = db.users;
 

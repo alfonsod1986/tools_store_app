@@ -2,15 +2,20 @@
 
 module.exports = (sequelize, Sequelize) => {
     const User = sequelize.define('user', {
-        user_id:{
-            type: Sequelize.INTEGER.UNSIGNED,
-            primaryKey: true,
-            autoIncrement: true
-        },
         dni:{
             type: Sequelize.STRING(30),
+            primaryKey: true,
             allowNull: true,
             len: [5,30]  
+        },
+        username:{
+            type: Sequelize.STRING(20),
+            unique: true,
+            len: [5,20]
+        },
+        password:{
+            type: Sequelize.STRING(70),
+            len: [5,20]
         },
         first_name:{
             type: Sequelize.STRING(128),

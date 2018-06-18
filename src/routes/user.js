@@ -3,7 +3,7 @@
 const router = require('express').Router();
 const user = require('../controller/user');
 
-router.get('/voters/', user.all);
+router.get('/users/', user.all);
 router.post('/login', user.logIn);
 
 /* Export module */
