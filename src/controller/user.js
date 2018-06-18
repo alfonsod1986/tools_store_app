@@ -33,6 +33,7 @@ controller.all = (req, res) => {
 controller.logIn = (req, res) => {
     var {username} = req.body;
     var {password} = req.body;
+    var {gettoken} = req.body;
 
     User.findOne({
         where: { username: username }
@@ -40,7 +41,7 @@ controller.logIn = (req, res) => {
         if(user){
             bcrypt.compare(password, user.password, (err, check) => {
                 if(check){
-                    if(params.gettoken){
+                    if(gettoken){
                         // Devolver token
                         // Generar token
                         return res.status(200).send({
