@@ -15,6 +15,9 @@ const controller = {};
  */
 controller.all = (req, res) => {
     Product.findAll({
+        attributes: {
+            exclude: ['measurement_unit_id']
+        },
         include: [{
             model: db.measurement_units,
             as: 'measurement_unit',
