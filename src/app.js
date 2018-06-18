@@ -8,7 +8,8 @@ const bodyParser = require('body-parser');
 
 /* Importing Routes */
 const user = require('./routes/user');
-const measurement_units = require('./routes/measurement_unit');
+const measurement_unit = require('./routes/measurement_unit');
+const product = require('./routes/product');
 
 /* Middlewares */
 app.use(morgan('dev'));
@@ -27,7 +28,8 @@ app.use((req, res, next) => {
 
 /* Routes */
 app.use('/api', user);
-app.use('/api', measurement_units);
+app.use('/api', measurement_unit);
+app.use('/api', product);
 
 /* Export module */
 module.exports = app;
