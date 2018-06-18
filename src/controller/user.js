@@ -31,8 +31,8 @@ controller.all = (req, res) => {
  * @returns user
  */
 controller.logIn = (req, res) => {
-    var {username} = req.params;
-    var {password} = req.params;
+    var {username} = req.body;
+    var {password} = req.body;
 
     User.findOne({
         where: {
