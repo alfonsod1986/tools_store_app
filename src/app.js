@@ -11,6 +11,7 @@ const user = require('./routes/user');
 const measurement_unit = require('./routes/measurement_unit');
 const product = require('./routes/product');
 const customer = require('./routes/customer');
+const company = require('./routes/company');
 
 /* Middlewares */
 app.use(morgan('dev'));
@@ -32,6 +33,7 @@ app.use('/api', user);
 app.use('/api', measurement_unit);
 app.use('/api', product);
 app.use('/api', customer);
+app.use('/api', company);
 
 /* Export module */
 module.exports = app;
