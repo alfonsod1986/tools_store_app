@@ -30,7 +30,40 @@ controller.all = (req, res) => {
  * 
  * @returns user
  */
-controller.logIn = (req, res) => {};
+controller.logIn = (req, res) => {
+    var {username} = req.params;
+    var {password} = req.params;
+
+    User.findOne({
+        where: {
+            username: username,
+            password: password
+        }
+    }).then(user => {
+        if(user){
+            bcrypt.compare(password, user.password, (err, check) => {
+                if(check){
+                    if(params.gettoken){
+                        // Devolver token
+                        // Generar token
+                        return res.status(200).send({
+                            token: jwt.createToken(user)
+                        });
+                    }else{
+                        // Devolver datos de usuario
+                        user.password = undefined;
+                        return res.status(200).send({ success: true, user});
+                    }
+                }else{
+                    return res.status(404).send({ success: false, message: 'El usuario no se ha podido identificar.'});
+                }
+            });
+        }
+        res.status(200).send(user);
+    }).catch((err) =>{
+        res.status(500).send(err);
+    });
+};
 
 /* Export module */
 module.exports = controller;
