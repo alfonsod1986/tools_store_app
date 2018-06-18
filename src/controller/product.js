@@ -14,7 +14,15 @@ const controller = {};
  * @returns products
  */
 controller.all = (req, res) => {
-    Product.findAll().then(products => {
+    Product.findAll({
+        include: [{
+            model: db.measurement_units,
+            as: 'measurement_unit',
+            required: false,
+            attributes: ['name'],
+            nested:false
+        }]
+    }).then(products => {
         res.status(200).send(products);
     }).catch((err) =>{
         res.status(500).send(err);
