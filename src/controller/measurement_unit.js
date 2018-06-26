@@ -21,5 +21,23 @@ controller.all = (req, res) => {
     });
 };
 
+/**
+ * Obtener una unidad de medida por Id
+ * 
+ * @param req
+ * @param res
+ * 
+ * @returns customer
+ */
+controller.show = (req, res) => {
+    const { measurementUnitId } = req.params;
+
+    MeasurementUnit.findById(measurementUnitId).then(measurementUnit => {
+        res.status(200).send(measurementUnit);
+    }).catch((err) =>{
+        res.status(500).send(err);
+    });
+};
+
 /* Export module */
 module.exports = controller;

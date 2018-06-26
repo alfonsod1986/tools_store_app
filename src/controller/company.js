@@ -21,5 +21,23 @@ controller.all = (req, res) => {
     });
 };
 
+/**
+ * Obtener una empresa por Id
+ * 
+ * @param req
+ * @param res
+ * 
+ * @returns company
+ */
+controller.show = (req, res) => {
+    const { companyId } = req.params;
+
+    Company.findById(companyId).then(company => {
+        res.status(200).send(company);
+    }).catch((err) =>{
+        res.status(500).send(err);
+    });
+};
+
 /* Export module */
 module.exports = controller;

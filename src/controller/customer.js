@@ -21,5 +21,23 @@ controller.all = (req, res) => {
     });
 };
 
+/**
+ * Obtener un cliente por Id
+ * 
+ * @param req
+ * @param res
+ * 
+ * @returns customer
+ */
+controller.show = (req, res) => {
+    const { customerId } = req.params;
+
+    Customer.findById(customerId).then(customer => {
+        res.status(200).send(customer);
+    }).catch((err) =>{
+        res.status(500).send(err);
+    });
+};
+
 /* Export module */
 module.exports = controller;
