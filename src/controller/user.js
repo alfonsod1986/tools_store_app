@@ -54,11 +54,11 @@ controller.logIn = (req, res) => {
                         return res.status(200).send({ success: true, user});
                     }
                 }else{
-                    return res.status(404).send({ success: false, message: 'El usuario no se ha podido identificar.'});
+                    return res.status(404).send({ success: false, message: 'Las credenciales son incorrectas.'});
                 }
             });
         }else{
-            return res.status(404).send({ success: false, message: 'El usuario no se ha podido identificar!!.'});
+            return res.status(404).send({ success: false, message: 'Las credenciales son incorrectas.'});
         }
     }).catch((err) =>{
         res.status(500).send(err);
